@@ -35,6 +35,9 @@ app.get('/read', async(req,res) =>{  //find() => gives array whereas findOne() =
     let users= await userModel.find({username: "ayush"});
     res.send(users);
 })
-
+app.get("/delete" , async (req,res) =>{
+    let users =await userModel.findOneAndDelete({username: "kirti"});
+    res.send(users);
+})
 
 app.listen (3000);
