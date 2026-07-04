@@ -5,7 +5,7 @@ app.get('./' , (req,res) => {
     res.send("hey");
 })
  
-app.get('/create ', async(req, res) =>{
+app.get('/create', async(req, res) =>{
   let createduser=  await userModel.create({
         name:" Kirti ",
         email: "kirti@gmail.com",
@@ -13,6 +13,18 @@ app.get('/create ', async(req, res) =>{
     })
     res.send(createduser);
 })
+
+app.get('/update', async(req, res) =>{
+ //   userModel.findOneUpdate( findone , update , {new : true})
+let updatedUser= await userModel.findOneAndUpdate({ username:"kirti"} , {name: "kirti kaushik"} , {returnDocument: "after" });
+      
+
+res.send(updatedUser);
+
+     
+})
+
+
 
 
 app.listen (3000);
