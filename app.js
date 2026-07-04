@@ -23,12 +23,18 @@ res.send(updatedUser);
 
      
 })
-
+//To read all users
 app.get('/read', async(req,res) =>{
     let users= await userModel.find();
     res.send(users);
 })
 
+
+// to find a specific user
+app.get('/read', async(req,res) =>{  //find() => gives array whereas findOne() => gives object
+    let users= await userModel.find({username: "ayush"});
+    res.send(users);
+})
 
 
 app.listen (3000);
