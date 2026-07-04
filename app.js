@@ -7,9 +7,9 @@ app.get('./' , (req,res) => {
  
 app.get('/create', async(req, res) =>{
   let createduser=  await userModel.create({
-        name:" Kirti ",
-        email: "kirti@gmail.com",
-        username: "kirti"
+        name:" ayush ",
+        email: "ayush@gmail.com",
+        username: "ayush"
     })
     res.send(createduser);
 })
@@ -24,6 +24,10 @@ res.send(updatedUser);
      
 })
 
+app.get('/read', async(req,res) =>{
+    let users= await userModel.find();
+    res.send(users);
+})
 
 
 
